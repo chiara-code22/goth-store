@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOCTIS | Dark Gothic Fashion</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Uncial+Antiqua&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- CANVAS ANIMAZIONI -->
+  <canvas id="batCanvas"></canvas>
+  <canvas id="spiderCanvas"></canvas>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-text">NOCTIS</span>
+      <span class="logo-sub">⸸ Dark Fashion ⸸</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#women">Women</a></li>
+      <li><a href="#men">Men</a></li>
+      <li><a href="#accessories">Accessories</a></li>
+      <li><a href="#about">Chi Siamo</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="contacts.html">Contatti</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-btn" id="wishlistBtn" title="Wishlist"><i class="fas fa-heart"></i><span class="badge" id="wishBadge">0</span></button>
+      <button class="nav-btn" id="cartBtn" title="Carrello"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartBadge">0</span></button>
+      <button class="nav-btn" id="registerBtn" title="Registrati"><i class="fas fa-user"></i></button>
+      <button class="hamburger" id="hamburger"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-sub">⸸ Collezione Oscura 2025 ⸸</p>
+      <h1 class="hero-title">Where Darkness<br/><em>Becomes Fashion</em></h1>
+      <p class="hero-desc">Abbigliamento gotico, vittoriano & vampiresco per chi abita la notte</p>
+      <div class="hero-btns">
+        <a href="#women" class="btn-primary">Shop Women</a>
+        <a href="#men" class="btn-outline">Shop Men</a>
+      </div>
+    </div>
+    <div class="hero-scroll"><span>↓</span></div>
+  </section>
+
+  <!-- BANNER ANNUNCIO -->
+  <div class="announcement-bar">
+    <span>🦇 Spedizione gratuita per ordini sopra €80 🦇 &nbsp;&nbsp;|&nbsp;&nbsp; 🕸️ Reso gratuito entro 30 giorni 🕸️ &nbsp;&nbsp;|&nbsp;&nbsp; ⚰️ Nuova collezione Vampire Royal disponibile ⚰️</span>
+  </div>
+
+  <!-- CATEGORIE -->
+  <section class="categories-section">
+    <div class="container">
+      <h2 class="section-title">Esplora le Collezioni</h2>
+      <div class="categories-grid">
+        <div class="cat-card" onclick="scrollToSection('women')">
+          <img src="https://i.pinimg.com/736x/4e/3d/85/4e3d85a8d6d4bcfed8d36a6e39ae8f2a.jpg" alt="Women" loading="lazy"/>
+          <div class="cat-overlay"><span>WOMEN</span></div>
+        </div>
+        <div class="cat-card" onclick="scrollToSection('men')">
+          <img src="https://i.pinimg.com/736x/2a/7b/c9/2a7bc9df6c0b7a8d1a6b8c5a3e9f4d1a.jpg" alt="Men" loading="lazy"/>
+          <div class="cat-overlay"><span>MEN</span></div>
+        </div>
+        <div class="cat-card" onclick="scrollToSection('accessories')">
+          <img src="https://i.pinimg.com/736x/8f/2c/3e/8f2c3e5b4a1d9c7e6f0b2a8d5c3e7f1a.jpg" alt="Accessories" loading="lazy"/>
+          <div class="cat-overlay"><span>ACCESSORIES</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODOTTI WOMEN -->
+  <section class="products-section" id="women">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">⸸ Women's Collection ⸸</h2>
+        <p class="section-subtitle">Abiti gotici, corsetti vittoriani & stile vampiresco</p>
+      </div>
+      <div class="products-grid" id="womenGrid">
+        <!-- Iniettato da JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODOTTI MEN -->
+  <section class="products-section alt-bg" id="men">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">⸸ Men's Collection ⸸</h2>
+        <p class="section-subtitle">Abbigliamento oscuro, elegante e alternativo</p>
+      </div>
+      <div class="products-grid" id="menGrid">
+        <!-- Iniettato da JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESSORIES -->
+  <section class="products-section" id="accessories">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">⸸ Accessories ⸸</h2>
+        <p class="section-subtitle">Gioielli oscuri, borse & accessori gotici</p>
+      </div>
+      <div class="products-grid" id="accessoriesGrid">
+        <!-- Iniettato da JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- CHI SIAMO -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="https://i.pinimg.com/736x/6a/3c/9d/6a3c9d8b2e1f4a7c5d0e8b6a3c9d8b2e.jpg" alt="About NOCTIS" loading="lazy"/>
+          <div class="about-image-border"></div>
+        </div>
+        <div class="about-content">
+          <p class="about-label">⸸ La Nostra Storia ⸸</p>
+          <h2>Chi Siamo</h2>
+          <p>NOCTIS nasce dall'amore per l'estetica oscura, per i racconti gotici di Poe e Stoker, per le cattedrali medievali e la notte che avvolge tutto in mistero.</p>
+          <p>La nostra collezione fonde il rigore dell'abito vittoriano con l'audacia dello stile alternativo contemporaneo. Ogni capo è pensato per chi sceglie di vivere al di là del convenzionale, per chi trova bellezza nell'ombra e poesia nel buio.</p>
+          <p>Ispirati dal <strong>Vampire Goth</strong>, dal <strong>Dark Academia</strong>, dal <strong>Victorian Mourning</strong> e dal movimento alternativo underground, creiamo abiti che raccontano storie senza tempo.</p>
+          <div class="about-values">
+            <div class="value-item"><i class="fas fa-cross"></i><span>Artigianato oscuro</span></div>
+            <div class="value-item"><i class="fas fa-moon"></i><span>Estetica vittoriana</span></div>
+            <div class="value-item"><i class="fas fa-skull"></i><span>Stile vampiresco</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <h2 class="section-title">⸸ Domande Frequenti ⸸</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">Quali sono i tempi di consegna? <span>+</span></button>
+          <div class="faq-answer"><p>Le consegne standard avvengono entro 3-5 giorni lavorativi in Italia. Per spedizioni internazionali, i tempi variano da 7 a 14 giorni lavorativi. Riceverai una email con il tracking del tuo ordine oscuro.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Come funziona il reso? <span>+</span></button>
+          <div class="faq-answer"><p>Accettiamo resi entro 30 giorni dall'acquisto. Il capo deve essere nelle condizioni originali, non indossato, con tutti i tag originali. Il reso è completamente gratuito.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Come scelgo la taglia giusta? <span>+</span></button>
+          <div class="faq-answer"><p>Ogni prodotto ha una guida taglie dettagliata. I nostri capi gotici hanno spesso tagli particolari — ti consigliamo di misurare il tuo busto, vita e fianchi e confrontarli con la nostra tabella taglie.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">I materiali sono di qualità? <span>+</span></button>
+          <div class="faq-answer"><p>Assolutamente sì. Utilizziamo tessuti pregiati come velluto, pizzo, broccato e seta artificiale. Ogni capo è cucito con attenzione artigianale per garantire durata e comfort.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Posso tracciare il mio ordine? <span>+</span></button>
+          <div class="faq-answer"><p>Sì. Una volta spedito il tuo ordine, riceverai una email con il numero di tracking. Potrai seguire la tua spedizione oscura in tempo reale dalla sezione "I miei ordini" nel tuo profilo.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Accettate pagamenti con carta? <span>+</span></button>
+          <div class="faq-answer"><p>Accettiamo tutte le principali carte di credito e debito (Visa, Mastercard, American Express), PayPal, Apple Pay e bonifico bancario.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-web">
+      <div class="footer-brand">
+        <h3>NOCTIS</h3>
+        <p>⸸ Dark Fashion ⸸</p>
+        <p>L'oscurità è uno stile di vita.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-pinterest"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <a href="#women">Women</a>
+        <a href="#men">Men</a>
+        <a href="#accessories">Accessories</a>
+        <a href="#">Sale</a>
+      </div>
+      <div class="footer-links">
+        <h4>Info</h4>
+        <a href="#about">Chi Siamo</a>
+        <a href="contacts.html">Contatti</a>
+        <a href="#faq">FAQ</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div class="footer-links">
+        <h4>Supporto</h4>
+        <a href="#">Spedizioni</a>
+        <a href="#">Resi</a>
+        <a href="#">Guida Taglie</a>
+        <a href="#">Traccia Ordine</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 NOCTIS Dark Fashion. Tutti i diritti riservati. ⸸</p>
+    </div>
+  </footer>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>⸸ Il Tuo Carrello Oscuro ⸸</h3>
+      <button class="close-btn" id="closeCart"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty" id="cartEmpty">
+        <i class="fas fa-shopping-bag"></i>
+        <p>Il tuo carrello è vuoto</p>
+        <span>Aggiungi degli articoli oscuri</span>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span>Totale</span>
+        <span id="cartTotal">€0.00</span>
+      </div>
+      <button class="btn-primary full-width" id="checkoutBtn">Procedi all'Ordine ⸸</button>
+    </div>
+  </div>
+
+  <!-- WISHLIST SIDEBAR -->
+  <div class="wishlist-overlay" id="wishlistOverlay"></div>
+  <div class="wishlist-sidebar" id="wishlistSidebar">
+    <div class="cart-header">
+      <h3>⸸ La Tua Wishlist ⸸</h3>
+      <button class="close-btn" id="closeWishlist"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="wishlistItems">
+      <div class="cart-empty">
+        <i class="fas fa-heart"></i>
+        <p>La tua wishlist è vuota</p>
+        <span>Salva i tuoi articoli preferiti</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL REGISTRAZIONE -->
+  <div class="modal-overlay" id="registerOverlay">
+    <div class="modal register-modal">
+      <button class="close-btn modal-close" id="closeRegister"><i class="fas fa-times"></i></button>
+      <div class="modal-icon">🦇</div>
+      <h2>Registrazione Oscura</h2>
+      <p class="modal-sub">Unisciti alla nostra comunità di anime notturne</p>
+      <form class="register-form" id="registerForm">
+        <div class="form-group">
+          <label>Nome Oscuro</label>
+          <input type="text" placeholder="Il tuo nome..." required />
+        </div>
+        <div class="form-group">
+          <label>Email delle Tenebre</label>
+          <input type="email" placeholder="la-tua@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>Password Segreta</label>
+          <input type="password" placeholder="••••••••" required />
+        </div>
+        <div class="form-group">
+          <label>Ripeti Password</label>
+          <input type="password" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="btn-primary full-width">Entra nelle Tenebre ⸸</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL SUCCESSO REGISTRAZIONE -->
+  <div class="modal-overlay" id="registerSuccessOverlay">
+    <div class="modal success-modal">
+      <div class="success-icon">🦇</div>
+      <h2>Registrazione Oscura<br/>Effettuata con Successo!</h2>
+      <p>Benvenuto/a nell'oscurità, anima notturna.<br/>Le tenebre ti aspettavano da tempo.</p>
+      <div class="spider-decoration">🕷️🕸️🕷️</div>
+      <button class="btn-primary" onclick="closeSuccessModal()">Inizia a Vagare ⸸</button>
+    </div>
+  </div>
+
+  <!-- MODAL ORDINE EFFETTUATO -->
+  <div class="modal-overlay" id="orderSuccessOverlay">
+    <div class="modal order-modal">
+      <div class="success-icon">🕷️</div>
+      <h2>Ordine Oscuro<br/>Effettuato con Successo!</h2>
+      <div id="orderDetails"></div>
+      <button class="btn-primary" onclick="closeOrderModal()">Continua a Vagare ⸸</button>
+    </div>
+  </div>
+
+  <!-- MODAL PRODOTTO -->
+  <div class="modal-overlay" id="productOverlay">
+    <div class="modal product-modal">
+      <button class="close-btn modal-close" id="closeProduct"><i class="fas fa-times"></i></button>
+      <div class="product-modal-content" id="productModalContent"></div>
+    </div>
+  </div>
+
+  <!-- CHATBOT -->
+  <div class="chatbot-container" id="chatbotContainer">
+    <div class="chatbot-header">
+      <div class="chatbot-avatar">🦇</div>
+      <div>
+        <strong>Lilith</strong>
+        <span class="chatbot-status">● Online nelle Tenebre</span>
+      </div>
+      <button class="close-btn" id="closeChatbot"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="chatbot-messages" id="chatbotMessages">
+      <div class="chat-msg bot">
+        <span>🦇 Benvenuto/a nelle tenebre. Sono <strong>Lilith</strong>, la tua assistente oscura. Come posso guidarti nell'oscurità oggi?</span>
+      </div>
+    </div>
+    <div class="chatbot-quick">
+      <button onclick="sendQuickMsg('Voglio vedere le ultime novità')">Novità</button>
+      <button onclick="sendQuickMsg('Come posso tracciare il mio ordine?')">Traccia ordine</button>
+      <button onclick="sendQuickMsg('Avete il reso gratuito?')">Resi</button>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Scrivi nelle tenebre..." />
+      <button id="sendChatBtn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+  <button class="chatbot-toggle" id="chatbotToggle">
+    <span>🦇</span>
+    <span class="chatbot-label">Assistente</span>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>

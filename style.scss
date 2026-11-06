@@ -1,0 +1,296 @@
+// ============================================================
+// NOCTIS DARK FASHION — style.scss
+// Gothic E-Commerce | SCSS Source
+// (Compile with: sass style.scss style.css)
+// ============================================================
+
+// ---------- VARIABLES ----------
+$black:         #000000;
+$deep-black:    #050505;
+$dark:          #0a0a0a;
+$dark-mid:      #111111;
+$dark-surface:  #1a1a1a;
+$dark-card:     #141414;
+$dark-border:   #2a2a2a;
+$crimson:       #8b0000;
+$crimson-light: #a80000;
+$blood:         #6b0000;
+$gold:          #c9a84c;
+$gold-light:    #e2c47a;
+$silver:        #888888;
+$off-white:     #e8e0d0;
+$cream:         #f2ede4;
+$purple:        #3d1a4e;
+$purple-mid:    #5c2870;
+
+$text-primary:   #e8e0d0;
+$text-secondary: #a89880;
+$text-muted:     #665544;
+
+$font-display:  'Cinzel Decorative', serif;
+$font-body:     'Cormorant Garamond', serif;
+$font-accent:   'Uncial Antiqua', cursive;
+
+$nav-h:    80px;
+$radius:   4px;
+$shadow:   0 4px 30px rgba(0,0,0,0.8);
+$shadow-red: 0 4px 20px rgba($crimson, 0.3);
+$trans:    all 0.35s cubic-bezier(.25,.8,.25,1);
+
+// ---------- MIXINS ----------
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin gothic-title($size: 1rem) {
+  font-family: $font-display;
+  font-size: $size;
+  color: $off-white;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@mixin crimson-btn {
+  display: inline-block;
+  padding: 0.75rem 2.2rem;
+  background: $crimson;
+  color: $off-white;
+  font-family: $font-display;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: $radius;
+  transition: $trans;
+  border: 1px solid $crimson-light;
+  cursor: pointer;
+
+  &:hover {
+    background: $crimson-light;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: $shadow-red;
+  }
+}
+
+@mixin card-hover {
+  transition: $trans;
+  &:hover {
+    border-color: $crimson;
+    transform: translateY(-6px);
+    box-shadow: 0 16px 40px rgba($crimson, 0.25);
+  }
+}
+
+@mixin ghost-border {
+  border: 1px solid $dark-border;
+  background: $dark-card;
+  border-radius: $radius;
+}
+
+@mixin overlay-dark($opacity: 0.85) {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,$opacity);
+}
+
+@mixin section-padding {
+  padding: 6rem 0;
+}
+
+@mixin responsive-grid($min: 260px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax($min, 1fr));
+  gap: 1.8rem;
+}
+
+// ---------- ANIMATIONS ----------
+@mixin fade-in-up($delay: 0s) {
+  animation: fadeInUp 1s ease $delay both;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(100vw); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(10px); }
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-5deg); }
+  50%       { transform: rotate(5deg); }
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+// ---------- BASE ----------
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: $deep-black;
+  color: $text-primary;
+  font-family: $font-body;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a { color: $gold; text-decoration: none; transition: $trans; }
+a:hover { color: $gold-light; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; border: none; background: none; font-family: $font-body; }
+
+// ---------- UTILITIES ----------
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.btn-primary { @include crimson-btn; }
+
+.btn-outline {
+  display: inline-block;
+  padding: 0.75rem 2.2rem;
+  background: transparent;
+  color: $off-white;
+  font-family: $font-display;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 1px solid $off-white;
+  border-radius: $radius;
+  transition: $trans;
+
+  &:hover {
+    background: $off-white;
+    color: $dark;
+  }
+}
+
+.section-title {
+  @include gothic-title(clamp(1.4rem, 3vw, 2.2rem));
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.full-width { width: 100%; text-align: center; }
+
+// ---------- NAVBAR ----------
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  height: $nav-h;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background: rgba(5,5,5,0.97);
+  border-bottom: 1px solid $dark-border;
+  backdrop-filter: blur(12px);
+  transition: $trans;
+
+  &.scrolled {
+    height: 64px;
+    border-bottom-color: $crimson;
+    box-shadow: 0 2px 30px rgba($crimson, 0.2);
+  }
+}
+
+.logo-text {
+  font-family: $font-display;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: $off-white;
+  letter-spacing: 0.2em;
+}
+
+// ---------- PRODUCTS ----------
+.products-section {
+  @include section-padding;
+  background: $deep-black;
+
+  &.alt-bg { background: $dark-mid; }
+}
+
+.products-grid {
+  @include responsive-grid(260px);
+  margin-top: 1rem;
+}
+
+.product-card {
+  @include ghost-border;
+  @include card-hover;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+// ---------- MEDIA QUERIES (SCSS) ----------
+@mixin tablet { @media (max-width: 1024px) { @content; } }
+@mixin tablet-sm { @media (max-width: 768px) { @content; } }
+@mixin mobile { @media (max-width: 480px) { @content; } }
+@mixin mobile-xs { @media (max-width: 360px) { @content; } }
+@mixin desktop-xl { @media (min-width: 1400px) { @content; } }
+
+// Responsive application example:
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+
+  @include tablet { grid-template-columns: 1fr; gap: 3rem; }
+}
+
+.footer-web {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding: 4rem 2rem;
+
+  @include tablet { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  @include mobile { grid-template-columns: 1fr; gap: 1.5rem; }
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+
+  @include tablet-sm { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  @include mobile { grid-template-columns: 1fr; }
+}
+
+// Note: Full CSS output is in style.css (compiled version)
+// Run: sass style.scss style.css --watch
